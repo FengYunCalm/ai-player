@@ -274,7 +274,11 @@ AI-Player 支持以下测试场景：
 ai-player/                          # 项目根目录
 ├── ai_player/                      # 主 Python 包
 │   ├── __init__.py                 # 包初始化
+│   ├── cli.py                      # CLI 入口
 │   ├── mcp_server.py               # MCP 服务器（核心代码）
+│   ├── config/                     # 配置文件目录
+│   │   ├── config.yaml             # 主配置文件
+│   │   └── config.example.yaml     # 配置示例
 │   ├── core/                       # 核心模块
 │   │   └── __init__.py
 │   ├── utils/                      # 工具模块
@@ -285,9 +289,7 @@ ai-player/                          # 项目根目录
 │       ├── baseline.json           # 代码基线
 │       ├── test_history.json       # 测试历史
 │       └── README.md               # 知识库说明
-├── config/                         # 配置文件目录
-│   ├── config.yaml                 # 主配置文件
-│   └── config.example.yaml         # 配置示例
+├── docs/                           # 文档目录
 ├── docs/                           # 文档目录
 │   ├── README_EN.md                # 英文版 README
 │   ├── configuration.md            # 配置指南
