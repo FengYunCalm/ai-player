@@ -210,9 +210,9 @@ AI-Player 完全支持 **MCP（Model Context Protocol）协议**，可以作为 
 
 1. **编辑 Claude Code MCP 配置文件**
 
-   **macOS/Linux:**
+   **macOS:**
    ```bash
-   vim ~/.config/claude/claude_desktop_config.json
+   vim ~/Library/Application\ Support/Claude/claude_desktop_config.json
    ```
 
    **Windows:**
@@ -220,6 +220,7 @@ AI-Player 完全支持 **MCP（Model Context Protocol）协议**，可以作为 
    notepad %APPDATA%\Claude\claude_desktop_config.json
    ```
 
+   > **注意**: Claude Desktop 目前仅支持 macOS 和 Windows，不支持 Linux。
 2. **添加 ai-player 配置**
 
    在 `mcpServers` 部分添加：
@@ -298,22 +299,31 @@ AI-Player 完全支持 **MCP（Model Context Protocol）协议**，可以作为 
 
 #### 方式一：作为 Skill 文件使用（推荐）
 
-1. **创建 Skill 文件**
+1. **创建 Skill 目录和文件**
 
-   在你的 OpenCode 项目目录下创建 `ai-player.md`：
+   OpenCode 使用特定的目录结构来存储 Skills：
 
    ```bash
-   cd /path/to/your/opencode-project/.opencode/skills/
-   vim ai-player.md
+   # 创建 Skill 目录
+   mkdir -p .opencode/skills/ai-player
+   
+   # 创建 Skill 文件（必须是 SKILL.md，全大写）
+   vim .opencode/skills/ai-player/SKILL.md
    ```
 
-2. **添加 Skill 内容**
+2. **添加 Skill 内容（必须包含 YAML frontmatter）**
 
    ```markdown
-   # AI-Player Skill
+   ---
+   name: ai-player
+   description: AI-powered MUD game automation and testing tool using MCP protocol
+   license: MIT
+   compatibility: opencode
+   metadata:
+     tools: connect_server, login_game, send_game_command, get_game_status, disconnect_server, get_bug_report
+   ---
 
-   ## 描述
-   AI-Player 是一个基于 MCP 协议的 MUD 游戏自动化测试工具。
+   # AI-Player Skill
 
    ## 安装
    ```bash
@@ -324,26 +334,47 @@ AI-Player 完全支持 **MCP（Model Context Protocol）协议**，可以作为 
 
    ## 使用方法
    通过 MCP 协议调用以下工具：
-   - connect_server: 连接游戏服务器
-   - login_game: 登录游戏
-   - send_game_command: 发送命令
-   - get_game_status: 获取状态
-   - disconnect_server: 断开连接
-   - get_bug_report: 获取 Bug 报告
+   - `connect_server`: 连接游戏服务器
+   - `login_game`: 登录游戏
+   - `send_game_command`: 发送命令
+   - `get_game_status`: 获取状态
+   - `disconnect_server`: 断开连接
+   - `get_bug_report`: 获取 Bug 报告
    ```
 
-3. **配置 MCP 连接**
+   > **重要**: 
+   > - Skill 文件名必须是 `SKILL.md`（全大写）
+   > - 目录名必须与 frontmatter 中的 `name` 字段一致
+   > - 必须包含 YAML frontmatter
 
-   在 OpenCode 的配置文件中添加：
+3. **Skill 文件位置说明**
 
-   ```yaml
-   mcp:
-     servers:
-       ai-player:
-         command: python
-         args: [-m, ai_player.mcp_server]
-         cwd: /path/to/ai-player
-   ```
+   OpenCode 会搜索以下位置（按优先级）：
+   
+   **项目级**（推荐）：
+   - `.opencode/skills/ai-player/SKILL.md`
+   - `.claude/skills/ai-player/SKILL.md`
+   - `.agents/skills/ai-player/SKILL.md`
+   
+   **全局级**：
+   - `~/.config/opencode/skills/ai-player/SKILL.md`
+   - `~/.claude/skills/ai-player/SKILL.md`
+   - `~/.agents/skills/ai-player/SKILL.md`
+
+4. **配置 MCP 服务器（可选）**
+
+   如果需要直接使用 MCP 服务器，在 `opencode.json` 中添加：
+
+   ```json
+   {
+     "mcp": {
+       "ai-player": {
+         "command": "python",
+         "args": ["-m", "ai_player.mcp_server"],
+         "cwd": "/path/to/ai-player"
+       }
+     }
+   }
 
 ---
 

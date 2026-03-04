@@ -62,35 +62,67 @@ pip install -e .
 
 #### OpenCode 配置
 
-在项目目录下创建 `.opencode/skills/ai-player.md`：
+1. **创建 Skill 目录结构**
 
-````markdown
-# AI-Player Skill
+   OpenCode 需要特定的目录结构：
 
-## 安装
+   ```bash
+   # 创建 Skill 目录（注意是目录，不是文件）
+   mkdir -p .opencode/skills/ai-player
+   
+   # 创建 SKILL.md 文件（必须全大写）
+   vim .opencode/skills/ai-player/SKILL.md
+   ```
 
-```bash
-git clone https://github.com/FengYunCalm/ai-player.git
-cd ai-player
-pip install -e .
-```
-````
+2. **添加 Skill 内容（必须包含 YAML frontmatter）**
 
-## 配置 MCP
+   ```markdown
+   ---
+   name: ai-player
+   description: AI-powered MUD game automation and testing tool using MCP protocol
+   license: MIT
+   compatibility: opencode
+   ---
 
-在 OpenCode 配置文件中添加：
+   # AI-Player Skill
 
-```yaml
-mcp:
-  servers:
-    ai-player:
-      command: python
-      args: [-m, ai_player.mcp_server]
-      cwd: /path/to/ai-player
-```
+   ## 安装
+   ```bash
+   git clone https://github.com/FengYunCalm/ai-player.git
+   cd ai-player
+   pip install -e .
+   ```
 
-```
+   ## 使用方法
+   通过 MCP 协议调用以下工具：
+   - `xiakexing-ai_connect_server`: 连接游戏服务器
+   - `xiakexing-ai_login_game`: 登录游戏
+   - `xiakexing-ai_send_game_command`: 发送游戏命令
+   - `xiakexing-ai_get_game_status`: 获取游戏状态
+   - `xiakexing-ai_disconnect_server`: 断开连接
+   - `xiakexing-ai_get_bug_report`: 获取 Bug 报告
+   ```
 
+3. **（可选）配置 MCP 服务器**
+
+   如果需要直接使用 MCP 服务器，在 `opencode.json` 中添加：
+
+   ```json
+   {
+     "mcp": {
+       "ai-player": {
+         "command": "python",
+         "args": ["-m", "ai_player.mcp_server"],
+         "cwd": "/path/to/ai-player"
+       }
+     }
+   }
+   ```
+
+   > **注意**: 
+   > - Skill 文件名必须是 `SKILL.md`（全大写）
+   > - 目录名必须与 frontmatter 中的 `name` 字段一致
+   > - 必须包含 YAML frontmatter
 ### 步骤 4: 重启 AI 助手
 
 重启 Claude Code 或 OpenCode，工具会自动加载。
