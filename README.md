@@ -424,52 +424,6 @@ AI-Player 完全支持 **MCP（Model Context Protocol）协议**，可以作为 
 
 ---
 
-### 🐙 GitHub Copilot 配置
-
-如果你使用 **GitHub Copilot**，也可以通过 MCP 协议使用 ai-player。
-
-> **注意**: GitHub MCP 服务器需要 GitHub Copilot 订阅。详见 [GitHub 官方文档](https://docs.github.com/en/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server)。
-
-#### 前提条件
-
-- GitHub 账号
-- VS Code + GitHub Copilot 扩展
-- GitHub MCP 服务器已启用（[官方文档](https://docs.github.com/en/copilot/customizing-copilot/using-model-context-protocol/extending-copilot-with-mcp)）
-
-#### 配置步骤
-
-1. **确保 GitHub MCP 服务器已启用**
-
-   在 VS Code 中打开命令面板（Ctrl+Shift+P），输入 `MCP: List Servers`，确认 `github` 服务器已配置。
-
-2. **添加 ai-player 到 MCP 配置**
-
-   GitHub Copilot 使用相同的 MCP 配置格式。在 VS Code 设置中添加：
-
-   ```json
-   {
-     "mcpServers": {
-       "ai-player": {
-         "command": "python",
-         "args": ["-m", "ai_player.mcp_server"],
-         "cwd": "/path/to/ai-player"
-       }
-     }
-   }
-   ```
-
-3. **在 Copilot Chat 中使用**
-
-   打开 Copilot Chat，选择 **Agent** 模式，然后输入：
-   ```
-   请帮我测试侠客行新手村的可玩性
-   ```
-
-   Copilot 会自动调用 ai-player 的 MCP 工具。
-
----
-
-
 ### 🔧 高级配置
 
 #### 自定义配置文件路径
