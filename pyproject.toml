@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "AI-Player Contributors", email = "your.email@example.com"}
+    {name = "AI-Player Contributors", email = "noreply@FengYunCalm.github.com"}
 ]
 keywords = ["mud", "game", "automation", "testing", "mcp", "ai"]
 classifiers = [
@@ -40,9 +40,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/ai-player"
-Repository = "https://github.com/yourusername/ai-player"
-Issues = "https://github.com/yourusername/ai-player/issues"
+Homepage = "https://github.com/FengYunCalm/ai-player"
+Repository = "https://github.com/FengYunCalm/ai-player"
+Issues = "https://github.com/FengYunCalm/ai-player/issues"
 
 [project.scripts]
 ai-player = "ai_player.cli:main"
