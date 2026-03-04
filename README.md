@@ -190,6 +190,264 @@ python examples/bug_detection.py
 
 ---
 
+## 🤖 在 AI 助手中使用
+
+AI-Player 完全支持 **MCP（Model Context Protocol）协议**，可以作为 Claude Code 和 OpenCode 的技能（Skill）使用，让 AI 助手直接控制 MUD 游戏进行自动化测试。
+
+### 📌 支持的 AI 助手
+
+| AI 助手 | 支持状态 | 说明 |
+|---------|---------|------|
+| **Claude Code** | ✅ 完全支持 | Anthropic 官方 AI 编程助手 |
+| **OpenCode** | ✅ 完全支持 | 开源 AI 编程助手 |
+| **其他 MCP 客户端** | ✅ 兼容 | 任何支持 MCP 协议的客户端 |
+
+---
+
+### 🚀 Claude Code 安装
+
+#### 方式一：使用 MCP 配置文件（推荐）
+
+1. **编辑 Claude Code MCP 配置文件**
+
+   **macOS/Linux:**
+   ```bash
+   vim ~/.config/claude/claude_desktop_config.json
+   ```
+
+   **Windows:**
+   ```powershell
+   notepad %APPDATA%\Claude\claude_desktop_config.json
+   ```
+
+2. **添加 ai-player 配置**
+
+   在 `mcpServers` 部分添加：
+
+   ```json
+   {
+     "mcpServers": {
+       "ai-player": {
+         "command": "python",
+         "args": ["-m", "ai_player.mcp_server"],
+         "cwd": "C:\\Users\\你的用户名\\ai-player"
+       }
+     }
+   }
+   ```
+
+   **Linux/macOS 路径示例：**
+   ```json
+   "cwd": "/home/你的用户名/ai-player"
+   ```
+
+3. **重启 Claude Code**
+
+   重启后，Claude Code 会自动加载 ai-player 工具。
+
+4. **验证安装**
+
+   在 Claude Code 中输入：
+   ```
+   请列出可用的 MCP 工具
+   ```
+
+   应该能看到以下工具：
+   - `xiakexing-ai_connect_server` - 连接游戏服务器
+   - `xiakexing-ai_login_game` - 登录游戏
+   - `xiakexing-ai_send_game_command` - 发送游戏命令
+   - `xiakexing-ai_get_game_status` - 获取游戏状态
+   - `xiakexing-ai_disconnect_server` - 断开连接
+   - `xiakexing-ai_get_bug_report` - 获取 Bug 报告
+
+---
+
+#### 方式二：使用 Python 虚拟环境（推荐用于生产环境）
+
+1. **创建虚拟环境**
+   ```bash
+   cd /path/to/ai-player
+   python -m venv venv
+   source venv/bin/activate  # Linux/macOS
+   # 或
+   venv\Scripts\activate     # Windows
+   ```
+
+2. **安装依赖**
+   ```bash
+   pip install -e .
+   ```
+
+3. **更新 MCP 配置**
+
+   ```json
+   {
+     "mcpServers": {
+       "ai-player": {
+         "command": "/path/to/ai-player/venv/bin/python",
+         "args": ["-m", "ai_player.mcp_server"],
+         "cwd": "/path/to/ai-player"
+       }
+     }
+   }
+   ```
+
+---
+
+### 🚀 OpenCode 安装
+
+#### 方式一：作为 Skill 文件使用（推荐）
+
+1. **创建 Skill 文件**
+
+   在你的 OpenCode 项目目录下创建 `ai-player.md`：
+
+   ```bash
+   cd /path/to/your/opencode-project/.opencode/skills/
+   vim ai-player.md
+   ```
+
+2. **添加 Skill 内容**
+
+   ```markdown
+   # AI-Player Skill
+
+   ## 描述
+   AI-Player 是一个基于 MCP 协议的 MUD 游戏自动化测试工具。
+
+   ## 安装
+   ```bash
+   git clone https://github.com/FengYunCalm/ai-player.git
+   cd ai-player
+   pip install -e .
+   ```
+
+   ## 使用方法
+   通过 MCP 协议调用以下工具：
+   - connect_server: 连接游戏服务器
+   - login_game: 登录游戏
+   - send_game_command: 发送命令
+   - get_game_status: 获取状态
+   - disconnect_server: 断开连接
+   - get_bug_report: 获取 Bug 报告
+   ```
+
+3. **配置 MCP 连接**
+
+   在 OpenCode 的配置文件中添加：
+
+   ```yaml
+   mcp:
+     servers:
+       ai-player:
+         command: python
+         args: [-m, ai_player.mcp_server]
+         cwd: /path/to/ai-player
+   ```
+
+---
+
+#### 方式二：直接集成到项目中
+
+1. **作为依赖安装**
+
+   在项目的 `requirements.txt` 中添加：
+   ```
+   git+https://github.com/FengYunCalm/ai-player.git@main
+   ```
+
+2. **在代码中使用**
+
+   ```python
+   from ai_player.mcp_server import MCPStdioServer
+   import asyncio
+
+   # 启动 MCP 服务器
+   server = MCPStdioServer()
+   asyncio.run(server.run())
+   ```
+
+---
+
+### 💡 使用示例
+
+#### 在 Claude Code 中测试新手村
+
+```
+请帮我测试侠客行新手村的可玩性：
+1. 连接到 localhost:3939
+2. 使用测试账号 test/test123 登录
+3. 执行新手引导任务
+4. 检查是否有 Bug
+```
+
+#### 在 OpenCode 中检测 Bug
+
+```
+请帮我检查 MUD 服务器的日志：
+1. 连接到游戏服务器
+2. 获取最近 10 个 Bug 报告
+3. 分析 Bug 的严重程度
+4. 给出修复建议
+```
+
+---
+
+### 🔧 高级配置
+
+#### 自定义配置文件路径
+
+```json
+{
+  "mcpServers": {
+    "ai-player": {
+      "command": "python",
+      "args": ["-m", "ai_player.mcp_server", "--config", "/custom/path/config.yaml"],
+      "cwd": "/path/to/ai-player"
+    }
+  }
+}
+```
+
+#### 使用环境变量
+
+```bash
+# Linux/macOS
+export AI_PLAYER_CONFIG=/path/to/config.yaml
+
+# Windows
+set AI_PLAYER_CONFIG=C:\path\to\config.yaml
+```
+
+---
+
+### 🐛 常见问题
+
+#### Q: Claude Code 无法连接到 MCP 服务器？
+
+**A:** 检查以下几点：
+1. Python 路径是否正确（使用绝对路径）
+2. 工作目录（cwd）是否正确
+3. 依赖是否已安装（`pip install -e .`）
+4. 配置文件是否有效（运行 `python -m ai_player.mcp_server` 测试）
+
+#### Q: OpenCode 找不到 Skill 文件？
+
+**A:** 确保：
+1. Skill 文件位于 `.opencode/skills/` 目录
+2. 文件名为 `.md` 格式
+3. OpenCode 配置文件中已启用该 Skill
+
+#### Q: MCP 工具调用失败？
+
+**A:** 检查：
+1. MUD 服务器是否正在运行
+2. 服务器地址和端口是否正确
+3. 防火墙是否允许连接
+4. 查看 MCP 服务器日志输出
+
+---
+
 ## 使用文档
 
 ### 📖 基础用法
