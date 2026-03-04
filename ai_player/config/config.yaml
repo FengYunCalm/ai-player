@@ -1,0 +1,198 @@
+# AI Player Configuration File
+# Configuration for MUD game automation and testing
+
+# ============================================
+# Test Mode Settings
+# ============================================
+test_mode: true # Enable test mode
+debug: true # Enable debug output
+verbose: true # Show verbose execution info
+
+# ============================================
+# Server Connection Configuration
+# ============================================
+server:
+  # MUD game server address and port
+  host: "localhost"
+  port: 3939
+
+  # Connection timeout (seconds)
+  connect_timeout: 10
+
+  # Character encoding
+  encoding: "utf-8"
+
+  # Auto-reconnect settings
+  auto_reconnect: true
+  reconnect_delay: 5
+  max_reconnect_attempts: 3
+
+# ============================================
+# MCP Server Configuration
+# ============================================
+mcp_server:
+  # MCP HTTP server port
+  port: 8000
+  host: "0.0.0.0"
+
+  # Log level: debug, info, warning, error
+  log_level: "info"
+
+# ============================================
+# Login Configuration
+# ============================================
+login:
+  # Login separator (special character)
+  separator: "|"
+
+  # Default gender (for character creation)
+  default_gender: "Male"
+
+  # Login wait time (seconds)
+  wait_time: 2
+
+  # Success keywords (to detect successful login)
+  success_keywords:
+    - "Welcome"
+    - "Success"
+    - "Room"
+    - "Here"
+
+  # Character creation prompts
+  create_role_prompts:
+    - "Create"
+    - "Character"
+
+  # Gender selection prompts
+  gender_prompts:
+    - "Gender"
+
+# ============================================
+# Game State Detection Configuration
+# ============================================
+game_state:
+  # Room name markers (for parsing room names)
+  room_markers:
+    start: "["
+    end: "]"
+
+  # Exit detection patterns
+  exit_patterns:
+    - "Exits: (.+)"
+    - "Obvious exits are (.+)."
+
+  # Exit delimiters
+  exit_delimiters:
+    - ","
+    - " "
+    - "and"
+
+# ============================================
+# Command Execution Configuration
+# ============================================
+execution:
+  # Rate limit (commands/second)
+  rate_limit: 10
+
+  # Command queue size
+  queue_size: 100
+
+  # Command execution interval (seconds)
+  command_interval: 1.0
+
+  # Retry times
+  retry_times: 3
+
+# ============================================
+# AI Decision Configuration
+# ============================================
+ai:
+  # AI mode: versatile, combat, explore, quest, social
+  mode: "versatile"
+
+  # Enable LLM
+  use_llm: false
+
+  # Decision interval (seconds)
+  decision_interval: 2.0
+
+  # Think interval (seconds)
+  think_interval: 1.0
+
+  # Max idle rounds
+  max_idle_turns: 10
+
+  # HP threshold (consider flee/heal below this)
+  hp_threshold: 0.3
+
+  # MP threshold
+  mp_threshold: 0.2
+
+# ============================================
+# Logging Configuration
+# ============================================
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
+
+  # Log file path
+  file: "logs/ai_player.log"
+
+  # Console output
+  console: true
+
+  # Log format
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+
+# ============================================
+# Path Configuration
+# ============================================
+paths:
+  # Project root (relative to this config file)
+  project_root: ".."
+
+  # Server directory
+  server_dir: "server"
+
+  # Startup script paths (relative to project root)
+  startup_scripts:
+    windows: "server/bin/start.bat"
+    linux: "server/bin/start.sh"
+
+  # Log directory (relative to project root)
+  log_dir: "server/data/log"
+
+  # Specific log files (relative to project root)
+  runtime_log: "server/data/log/runtime.log"
+  compile_log: "server/data/log/compile.log"
+  driver_log: "server/data/log/driver.log"
+
+# ============================================
+# Test Configuration
+# ============================================
+test:
+  # Test account (for automated testing)
+  default_account: "test"
+  default_password: "test123"
+
+  # Test timeout (seconds)
+  timeout: 30
+
+  # Mock mode (don't actually connect to server)
+  mock_mode: false
+
+  # Mock responses (for testing)
+  mock_responses:
+    welcome: "[Town Square]\nYou are in the town square.\nObvious exits are north, south, east, west.\n"
+    prompt: "> "
+
+# ============================================
+# Error Detection Configuration
+# ============================================
+error_detection:
+  keywords:
+    - "Error"
+    - "Exception"
+    - "Failed"
+    - "Undefined"
+    - "Warning"
