@@ -644,7 +644,7 @@ ai-player/                          # 项目根目录
 
 ## 更新日志
 
-### v1.0.0 (2026-03-04)
+### v1.0.0 (2025-03-04)
 
 #### ✨ 新功能
 
@@ -683,7 +683,7 @@ ai-player/                          # 项目根目录
 ```
 MIT License
 
-Copyright (c) 2026 AI-Player Contributors
+Copyright (c) 2025 AI-Player Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
