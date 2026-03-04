@@ -314,15 +314,13 @@ ai-player/                          # 项目根目录
 │   ├── ISSUE_TEMPLATE/             # Issue 模板
 │   │   ├── bug_report.md           # Bug 报告模板
 │   │   └── feature_request.md      # 功能请求模板
-│   ├── PROFILE.md                  # 组织简介
-│   ├── pull_request_template.md    # PR 模板
-│   └── README.md                   # GitHub 说明
-├── LICENSE                         # MIT 许可证
-├── CHANGELOG.md                    # 更新日志
 │   ├── CODE_OF_CONDUCT.md        # 行为准则
 │   ├── CONTRIBUTING.md           # 贡献指南（双语）
-├── ROADMAP.md                      # 开发路线图
 │   ├── SECURITY.md               # 安全政策
+│   └── README.md                 # GitHub 说明
+├── LICENSE                         # MIT 许可证
+├── CHANGELOG.md                    # 更新日志
+├── ROADMAP.md                      # 开发路线图
 ├── README.md                       # 本文件（中文主文档）
 ├── setup.py                        # 安装脚本
 ├── pyproject.toml                  # 项目配置
