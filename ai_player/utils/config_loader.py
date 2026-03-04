@@ -11,7 +11,7 @@ from typing import Any, Dict, Optional
 
 # 配置文件路径
 DEFAULT_CONFIG_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     "config", "config.yaml"
 )
 
