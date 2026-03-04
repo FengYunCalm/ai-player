@@ -1,53 +1,45 @@
-# AI-Player
+# AI-Player 开源项目
 
-![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![MCP Protocol](https://img.shields.io/badge/MCP-Protocol-green.svg)
-![Tests](https://github.com/YOUR_USERNAME/ai-player/workflows/Tests/badge.svg)
+<div align="center">
 
-AI-powered MUD game automation and testing tool using MCP protocol.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![MCP](https://img.shields.io/badge/MCP-Protocol-green.svg)](https://modelcontextprotocol.io)
+[![CI](https://github.com/FengYunCalm/ai-player/workflows/Tests/badge.svg)](https://github.com/FengYunCalm/ai-player/actions)
 
-[📖 Documentation](docs/) | [🚀 Quick Start](#quick-start) | [💡 Examples](examples/)
+**AI驱动的MUD游戏自动化测试工具**
 
 </div>
 
-## ✨ Features
+## 🌟 项目特色
 
-- 🤖 **AI-Powered**: MCP protocol integration for LLM compatibility
-- 🔌 **Real-time**: TCP communication with MUD servers
-- 🐛 **Bug Detection**: Automatic log monitoring and error detection
-- 🔧 **Smart Fixes**: Automatic code repair suggestions
-- 🎮 **Game Testing**: Automated playability testing
-- 📊 **Knowledge Base**: Test history and code baseline tracking
+- 🌍 **双语支持** - 完整中文/英文文档
+- 🤖 **AI驱动** - 基于MCP协议
+- 🎮 **游戏测试** - 自动化MUD游戏测试
+- 🐛 **Bug检测** - 自动检测和修复
+- 📦 **开箱即用** - 简单配置即可使用
 
-## 🚀 Quick Start
+## 📚 文档
+
+- [📖 中文文档](README.md)
+- [📖 English Documentation](docs/README_EN.md)
+
+## 🚀 快速开始
 
 ```bash
-# Install
 pip install ai-player-mud
-
-# Configure
-cp config/config.example.yaml config/config.yaml
-
-# Run
-python -m ai_player.mcp_server
 ```
 
-## 📖 Documentation
+## 🤝 参与贡献
 
-- [Getting Started Guide](docs/index.md)
-- [Configuration](docs/configuration.md)
-- [API Reference](docs/api.md)
-- [Examples](examples/)
+我们欢迎各种形式的贡献！
 
-## 🤝 Contributing
+查看 [CONTRIBUTING.md](CONTRIBUTING.md) 了解如何参与。
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+## 📜 开源协议
 
-## 📜 License
-
-[MIT](LICENSE) © AI-Player Contributors
+[MIT License](LICENSE)
 
 ---
 
-⭐ Star us on GitHub — it motivates us a lot!
+**Made with ❤️ by AI-Player Contributors**
