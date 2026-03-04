@@ -5,6 +5,8 @@
 加载并管理 ai-player 的 YAML 配置
 """
 
+from __future__ import annotations
+
 import os
 import yaml
 from typing import Any, Dict, Optional
