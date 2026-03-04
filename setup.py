@@ -18,7 +18,7 @@ setup(
     name="ai-player-mud",
     version="1.0.0",
     author="AI-Player Contributors",
-    author_email="your.email@example.com",
+    author_email="fengyun.calm@users.noreply.github.com",
     description="AI-powered MUD game automation and testing tool using MCP protocol",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -49,13 +49,9 @@ setup(
             "mypy>=1.0.0",
         ],
     },
-    entry_points={
-        "console_scripts": [
-            "ai-player=ai_player.cli:main",
-        ],
-    },
+    # entry_points 已移至 pyproject.toml 避免冲突
     include_package_data=True,
     package_data={
-        "ai_player": ["config/*.yaml", "knowledge/*.json"],
+        "ai_player": ["knowledge/*.json"],
     },
 )
