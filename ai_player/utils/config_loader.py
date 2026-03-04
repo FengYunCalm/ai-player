@@ -106,11 +106,11 @@ class ConfigLoader:
     def get_server_config(self) -> Dict[str, Any]:
         """获取服务器配置"""
         result = self.get("server", DEFAULT_CONFIG["server"])
-        return result if isinstance(result, dict) else DEFAULT_CONFIG["server"]
+        return result if isinstance(result, dict) else DEFAULT_CONFIG["server"]  # type: ignore[return-value]
     def get_login_config(self) -> Dict[str, Any]:
         """获取登录配置"""
         result = self.get("login", DEFAULT_CONFIG["login"])
-        return result if isinstance(result, dict) else DEFAULT_CONFIG["login"]
+        return result if isinstance(result, dict) else DEFAULT_CONFIG["login"]  # type: ignore[return-value]
     def get_log_path(self, log_type: str = "runtime") -> str:
         """
         获取日志文件完整路径
@@ -121,28 +121,29 @@ class ConfigLoader:
         Returns:
             日志文件的绝对路径
         """
-        relative_path: Any = self.get(
+        relative_path = self.get(
             f"logging.{log_type}_log", f"server/data/log/{log_type}.log"
         )
 
         # 如果是绝对路径，直接返回
-        if os.path.isabs(relative_path):
-            return os.path.normpath(relative_path)
+        if os.path.isabs(relative_path):  # type: ignore[union-attr]
+            return os.path.normpath(relative_path)  # type: ignore[no-any-return]
 
         # 相对路径，基于项目根目录
-        return os.path.normpath(os.path.join(PROJECT_ROOT, str(relative_path)))
+        return os.path.normpath(os.path.join(PROJECT_ROOT, str(relative_path)))  # type: ignore[no-any-return]
     def get_error_keywords(self) -> list[Any]:
         """获取错误检测关键词"""
-        result: Any = self.get(
-            "error_detection.keywords", DEFAULT_CONFIG["error_detection"]["keywords"]
+        result = self.get(
+            "error_detection.keywords", DEFAULT_CONFIG["error_detection"]["keywords"]  # type: ignore[index]
         )
-        return result if isinstance(result, list) else DEFAULT_CONFIG["error_detection"]["keywords"]
+        return result if isinstance(result, list) else DEFAULT_CONFIG["error_detection"]["keywords"]  # type: ignore[index]
     def is_debug(self) -> bool:
         """是否调试模式"""
         result = self.get("debug", DEFAULT_CONFIG["debug"])
         return bool(result)
     def get_all_config(self) -> Dict[str, Any]:
-        return self._config if isinstance(self._config, dict) else DEFAULT_CONFIG
+        """获取完整配置"""
+        return self._config if isinstance(self._config, dict) else DEFAULT_CONFIG  # type: ignore[return-value]
     def get_project_root(self) -> str:
         """获取项目根目录"""
         return PROJECT_ROOT
@@ -176,16 +177,16 @@ class ConfigLoader:
         """
         script_path = self.get(f"paths.startup_scripts.{platform}", f"server/bin/start.{platform[:3]}")
 
-        if os.path.isabs(script_path):
-            return os.path.normpath(script_path)
-        return os.path.normpath(os.path.join(PROJECT_ROOT, script_path))
+        if os.path.isabs(script_path):  # type: ignore[union-attr]
+            return os.path.normpath(script_path)  # type: ignore[no-any-return]
+        return os.path.normpath(os.path.join(PROJECT_ROOT, str(script_path)))  # type: ignore[no-any-return]
     def get_log_dir(self) -> str:
         """获取日志目录路径"""
         log_dir = self.get("paths.log_dir", "server/data/log")
 
-        if os.path.isabs(log_dir):
-            return os.path.normpath(log_dir)
-        return os.path.normpath(os.path.join(PROJECT_ROOT, log_dir))
+        if os.path.isabs(log_dir):  # type: ignore[union-attr]
+            return os.path.normpath(log_dir)  # type: ignore[no-any-return]
+        return os.path.normpath(os.path.join(PROJECT_ROOT, str(log_dir)))  # type: ignore[no-any-return]
 
 # 全局配置实例
 config = ConfigLoader()
