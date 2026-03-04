@@ -1,148 +1,102 @@
 <div align="center">
 
-# 🤖 AI-Player 智能游戏测试工具
+<img src="https://img.shields.io/badge/AI--Player-智能游戏测试工具-blue?style=for-the-badge&logo=python&logoColor=white" alt="AI-Player">
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![MCP Protocol](https://img.shields.io/badge/MCP-协议-green.svg)](https://modelcontextprotocol.io/)
-[![Tests](https://github.com/FengYunCalm/ai-player/workflows/Tests/badge.svg)](https://github.com/FengYunCalm/ai-player/actions)
-[![Downloads](https://img.shields.io/github/downloads/FengYunCalm/ai-player/total.svg)](https://github.com/FengYunCalm/ai-player/releases)
+<p>
+  <a href="https://www.python.org/downloads/">
+    <img src="https://img.shields.io/badge/Python-3.8+-blue.svg?style=flat-square&logo=python" alt="Python 3.8+">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="License: MIT">
+  </a>
+  <a href="https://modelcontextprotocol.io/">
+    <img src="https://img.shields.io/badge/MCP-协议-green.svg?style=flat-square" alt="MCP Protocol">
+  </a>
+  <a href="https://github.com/FengYunCalm/ai-player/actions">
+    <img src="https://img.shields.io/github/workflow/status/FengYunCalm/ai-player/Tests?style=flat-square&logo=github" alt="Tests">
+  </a>
+</p>
 
-**基于 MCP 协议的 MUD 游戏自动化测试与智能修复工具**
+<p>
+  <a href="https://github.com/FengYunCalm/ai-player/releases">
+    <img src="https://img.shields.io/github/v/release/FengYunCalm/ai-player?style=flat-square&logo=github" alt="Latest Release">
+  </a>
+  <a href="https://github.com/FengYunCalm/ai-player/releases">
+    <img src="https://img.shields.io/github/downloads/FengYunCalm/ai-player/total.svg?style=flat-square" alt="Downloads">
+  </a>
+  <a href="https://github.com/FengYunCalm/ai-player/stargazers">
+    <img src="https://img.shields.io/github/stars/FengYunCalm/ai-player?style=flat-square&logo=github" alt="Stars">
+  </a>
+</p>
 
-[📖 中文文档](#快速开始) | [📖 English Docs](docs/README_EN.md) | [💡 使用示例](examples/) | [🚀 立即安装](#安装)
+<h3>🤖 基于 MCP 协议的 MUD 游戏自动化测试与智能修复工具</h3>
+
+<p>
+  <strong>中文</strong> | 
+  <a href="docs/README_EN.md"><strong>English</strong></a>
+</p>
+
+<p>
+  <a href="#快速开始"><strong>🚀 快速开始</strong></a> •
+  <a href="#功能特性"><strong>✨ 功能特性</strong></a> •
+  <a href="#使用文档"><strong>📖 使用文档</strong></a> •
+  <a href="#示例"><strong>💡 示例</strong></a> •
+  <a href="#贡献"><strong>🤝 贡献</strong></a>
+</p>
 
 </div>
 
 ---
 
-## ✨ 功能特性
+## 📋 目录
 
-- 🤖 **AI 驱动** - 基于 MCP 协议，与大模型无缝集成
-- 🔌 **实时通信** - 通过 TCP 与 MUD 服务器实时交互
-- 🐛 **Bug 检测** - 自动监控服务器日志，实时发现错误
-- 🔧 **智能修复** - 自动修复常见 LPC 代码错误
-- 🎮 **游戏测试** - 自动化游戏可玩性测试
-- 📊 **知识库** - 维护测试历史与代码基线
-- 🔄 **热更新** - 支持游戏运行时热更新（无需重启）
-- 🌐 **双语支持** - 中文/English 完整文档
-
----
-
-## 🚀 快速开始
-
-### 📦 安装
-
-```bash
-# 方式一：通过 pip 安装
-pip install ai-player-mud
-
-# 方式二：从源码安装
-git clone https://github.com/FengYunCalm/ai-player.git
-cd ai-player
-pip install -r requirements.txt
-```
-
-### ⚙️ 配置
-
-```bash
-# 复制配置文件
-cp config/config.example.yaml config/config.yaml
-
-# 编辑配置
-vim config/config.yaml
-```
-
-**基本配置示例：**
-
-```yaml
-server:
-  host: "localhost" # 服务器地址
-  port: 3939 # 服务器端口
-  encoding: "utf-8" # 字符编码
-
-login:
-  separator: "|" # 账号密码分隔符
-  default_gender: "男" # 默认性别
-
-test:
-  default_account: "test" # 测试账号
-  default_password: "test123" # 测试密码
-```
-
-### 🎮 运行
-
-```bash
-# 方式一：作为 MCP 服务器运行
-python -m ai_player.mcp_server
-
-# 方式二：运行示例
-python examples/basic_connection.py
-```
+- [项目简介](#项目简介)
+- [功能特性](#功能特性)
+- [快速开始](#快速开始)
+- [使用文档](#使用文档)
+- [项目结构](#项目结构)
+- [贡献指南](#贡献指南)
+- [更新日志](#更新日志)
+- [许可证](#许可证)
 
 ---
 
-## 📖 使用指南
+## 项目简介
 
-### 1️⃣ 连接游戏服务器
+**AI-Player** 是一个专为 MUD（多用户地下城）游戏设计的智能自动化测试工具。它基于 **MCP（Model Context Protocol）协议**，能够与大型语言模型无缝集成，实现游戏功能的自动化测试、Bug 检测和智能修复。
 
-```python
-from ai_player.core.connection import GameConnection
+### 什么是 MUD 游戏？
 
-# 创建连接
-conn = GameConnection()
+MUD（Multi-User Dungeon）是一种文字类多人在线角色扮演游戏，玩家通过命令行与游戏世界交互。MUD 游戏通常使用 LPC（Lars Pensj C）语言开发，运行在 MUD 驱动（如 FluffOS）上。
 
-# 连接服务器
-conn.connect(host="localhost", port=3939)
+### 为什么选择 AI-Player？
 
-# 登录游戏（支持自动注册）
-conn.login(account="test", password="test123")
-```
-
-### 2️⃣ 发送游戏命令
-
-```python
-# 发送命令
-conn.send("look")
-
-# 获取响应消息
-messages = conn.get_messages(timeout=1.0)
-for msg in messages:
-    print(msg["text"])
-```
-
-### 3️⃣ Bug 检测与报告
-
-```python
-# 获取自动检测到的 Bug
-bugs = conn.get_recent_bugs(count=5)
-
-for bug in bugs:
-    print(f"类型: {bug['type']}")
-    print(f"严重级别: {bug['severity']}")
-    print(f"消息: {bug['message']}")
-    if bug['source_file']:
-        print(f"位置: {bug['source_file']}:{bug['line_number']}")
-```
+- 🎯 **专为 MUD 设计** - 深度理解 MUD 游戏特性和 LPC 代码
+- 🚀 **AI 驱动测试** - 利用大模型智能分析游戏逻辑
+- 🔧 **自动修复** - 检测并修复常见代码错误
+- 📊 **完整报告** - 生成详细的测试报告和 Bug 分析
+- 🌐 **开源免费** - MIT 许可证，可自由使用和修改
 
 ---
 
-## 🛠️ MCP 工具列表
+## 功能特性
 
-| 工具名              | 描述                     | 参数                  |
-| ------------------- | ------------------------ | --------------------- |
-| `connect_server`    | 连接 MUD 游戏服务器      | `host`, `port`        |
-| `login_game`        | 登录游戏（支持自动注册） | `account`, `password` |
-| `send_game_command` | 发送游戏命令             | `command`             |
-| `get_game_status`   | 获取游戏状态             | -                     |
-| `disconnect_server` | 断开连接                 | -                     |
-| `get_bug_report`    | 获取 Bug 检测报告        | `count`               |
+### ✨ 核心功能
 
----
+| 功能         | 描述                             | 状态      |
+| ------------ | -------------------------------- | --------- |
+| **AI 驱动**  | 基于 MCP 协议，与大模型无缝集成  | ✅ 已实现 |
+| **实时通信** | 通过 TCP 与 MUD 服务器实时交互   | ✅ 已实现 |
+| **Bug 检测** | 自动监控服务器日志，实时发现错误 | ✅ 已实现 |
+| **智能修复** | 自动修复常见 LPC 代码错误        | ✅ 已实现 |
+| **游戏测试** | 自动化游戏可玩性测试             | ✅ 已实现 |
+| **知识库**   | 维护测试历史与代码基线           | ✅ 已实现 |
+| **热更新**   | 支持游戏运行时热更新（无需重启） | ✅ 已实现 |
+| **双语支持** | 完整的中文/英文文档              | ✅ 已实现 |
 
-## 🐛 支持的 Bug 修复类型
+### 🐛 支持的 Bug 修复
 
-### ✅ 自动修复（无需确认）
+#### ✅ 自动修复（无需确认）
 
 | 类型           | 描述                  | 示例                   |
 | -------------- | --------------------- | ---------------------- |
@@ -151,7 +105,7 @@ for bug in bugs:
 | **缺失返回值** | 添加 `return` 语句    | `return 0;`            |
 | **拼写错误**   | 修正字符串拼写        | `qury` → `query`       |
 
-### ⚠️ 需要确认
+#### ⚠️ 需要确认
 
 - 架构变更
 - 多文件修改
@@ -159,87 +113,303 @@ for bug in bugs:
 
 ---
 
-## 🧪 测试场景
+## 快速开始
 
-- **新手村可玩性测试** - 验证基础游戏功能
-- **战斗系统测试** - 测试战斗机制
-- **物品系统测试** - 测试物品交互
-- **通信系统测试** - 测试聊天功能
-- **压力测试** - 服务器稳定性测试
+### 📦 安装
 
----
-
-## 📂 项目结构
-
-```
-ai-player/
-├── ai_player/              # 主包
-│   ├── mcp_server.py       # MCP 服务器（核心代码）
-│   ├── utils/              # 工具模块
-│   │   └── config_loader.py
-│   └── knowledge/          # 知识库
-├── config/                 # 配置文件
-│   ├── config.yaml
-│   └── config.example.yaml
-├── examples/               # 使用示例
-│   ├── basic_connection.py
-│   ├── automated_test.py
-│   └── bug_detection.py
-├── tests/                  # 测试用例
-├── docs/                   # 文档
-│   ├── README_EN.md        # 英文文档
-│   └── configuration.md
-├── .github/                # GitHub 配置
-│   ├── workflows/          # CI/CD
-│   └── ISSUE_TEMPLATE/     # Issue 模板
-├── requirements.txt        # 依赖
-├── setup.py               # 安装脚本
-└── README.md              # 本文件
-```
-
----
-
-## 🤝 贡献指南
-
-我们欢迎所有形式的贡献！请参阅 [CONTRIBUTING.md](CONTRIBUTING.md) 了解如何参与。
-
-### 快速开始贡献
+#### 方式一：通过 pip 安装（推荐）
 
 ```bash
-# 1. Fork 本仓库
-# 2. 克隆你的 Fork
-git clone https://github.com/YOUR_USERNAME/ai-player.git
+pip install ai-player-mud
+```
 
-# 3. 创建分支
-git checkout -b feature/amazing-feature
+#### 方式二：从源码安装
 
-# 4. 提交更改
-git commit -m "feat: 添加 amazing 功能"
+```bash
+# 克隆仓库
+git clone https://github.com/FengYunCalm/ai-player.git
 
-# 5. 推送分支
-git push origin feature/amazing-feature
+# 进入目录
+cd ai-player
 
-# 6. 创建 Pull Request
+# 安装依赖
+pip install -r requirements.txt
+```
+
+### ⚙️ 配置
+
+1. **复制配置文件**
+
+```bash
+cp config/config.example.yaml config/config.yaml
+```
+
+2. **编辑配置**
+
+```bash
+vim config/config.yaml
+```
+
+3. **基本配置示例**
+
+```yaml
+# 服务器连接配置
+server:
+  host: "localhost" # MUD 服务器地址
+  port: 3939 # MUD 服务器端口
+  encoding: "utf-8" # 字符编码
+  connect_timeout: 10 # 连接超时（秒）
+
+# 登录配置
+login:
+  separator: "|" # 账号密码分隔符
+  default_gender: "男" # 默认性别（创建角色时使用）
+  wait_time: 2 # 登录等待时间（秒）
+
+# 测试账号配置
+test:
+  default_account: "test" # 测试账号
+  default_password: "test123" # 测试密码
+```
+
+### 🎮 运行
+
+#### 方式一：作为 MCP 服务器运行
+
+```bash
+python -m ai_player.mcp_server
+```
+
+#### 方式二：运行示例脚本
+
+```bash
+# 基础连接示例
+python examples/basic_connection.py
+
+# 自动化测试示例
+python examples/automated_test.py
+
+# Bug 检测示例
+python examples/bug_detection.py
 ```
 
 ---
 
-## 📝 开发计划
+## 使用文档
 
-查看 [ROADMAP.md](ROADMAP.md) 了解项目的未来计划。
+### 📖 基础用法
 
-### 版本规划
+#### 1. 连接游戏服务器
 
-| 版本   | 时间    | 主要特性                   |
-| ------ | ------- | -------------------------- |
-| v1.1.0 | 2026-Q2 | 连接池管理、WebSocket 支持 |
-| v1.2.0 | 2026-Q3 | 测试场景 DSL、可视化编辑器 |
-| v1.3.0 | 2026-Q4 | 智能修复引擎增强           |
-| v2.0.0 | 2027    | 企业级功能、Web 管理界面   |
+```python
+from ai_player.core.connection import GameConnection
+
+# 创建连接实例
+conn = GameConnection()
+
+# 连接到 MUD 服务器
+conn.connect(host="localhost", port=3939)
+
+# 登录游戏（账号不存在会自动注册）
+conn.login(account="test", password="test123")
+
+print(f"登录成功！当前房间：{conn.game_state['room']}")
+```
+
+#### 2. 发送游戏命令
+
+```python
+# 发送 "look" 命令查看房间
+conn.send("look")
+
+# 等待并获取响应
+messages = conn.get_messages(timeout=1.0)
+
+# 打印收到的消息
+for msg in messages:
+    print(msg["text"])
+```
+
+#### 3. Bug 检测与报告
+
+```python
+# 获取最近检测到的 Bug
+bugs = conn.get_recent_bugs(count=5)
+
+if bugs:
+    print(f"发现 {len(bugs)} 个 Bug：")
+    for bug in bugs:
+        print(f"\n类型：{bug['type']}")
+        print(f"严重级别：{bug['severity']}")
+        print(f"消息：{bug['message']}")
+        if bug['source_file']:
+            print(f"位置：{bug['source_file']}:{bug['line_number']}")
+else:
+    print("未发现 Bug！")
+```
+
+### 🛠️ MCP 工具列表
+
+AI-Player 提供以下 MCP 工具供 AI 调用：
+
+| 工具名              | 描述                     | 参数                  |
+| ------------------- | ------------------------ | --------------------- |
+| `connect_server`    | 连接 MUD 游戏服务器      | `host`, `port`        |
+| `login_game`        | 登录游戏（支持自动注册） | `account`, `password` |
+| `send_game_command` | 发送游戏命令             | `command`             |
+| `get_game_status`   | 获取当前游戏状态         | -                     |
+| `disconnect_server` | 断开服务器连接           | -                     |
+| `get_bug_report`    | 获取 Bug 检测报告        | `count`               |
+
+### 🧪 测试场景
+
+AI-Player 支持以下测试场景：
+
+- **新手村可玩性测试** - 验证基础游戏功能是否正常
+- **战斗系统测试** - 测试战斗机制、伤害计算等
+- **物品系统测试** - 测试物品拾取、使用、交易等
+- **通信系统测试** - 测试聊天、邮件等功能
+- **压力测试** - 测试服务器在高负载下的稳定性
 
 ---
 
-## 📜 许可证
+## 项目结构
+
+```
+ai-player/                          # 项目根目录
+├── ai_player/                      # 主 Python 包
+│   ├── __init__.py                 # 包初始化
+│   ├── mcp_server.py               # MCP 服务器（核心代码）
+│   ├── core/                       # 核心模块
+│   │   └── __init__.py
+│   ├── utils/                      # 工具模块
+│   │   ├── __init__.py
+│   │   └── config_loader.py        # 配置加载器
+│   └── knowledge/                  # 知识库
+│       ├── __init__.py
+│       ├── baseline.json           # 代码基线
+│       ├── test_history.json       # 测试历史
+│       └── README.md               # 知识库说明
+├── config/                         # 配置文件目录
+│   ├── config.yaml                 # 主配置文件
+│   └── config.example.yaml         # 配置示例
+├── docs/                           # 文档目录
+│   ├── README_EN.md                # 英文版 README
+│   ├── configuration.md            # 配置指南
+│   └── index.md                    # 文档索引
+├── examples/                       # 示例代码
+│   ├── README.md                   # 示例说明
+│   ├── basic_connection.py         # 基础连接示例
+│   ├── automated_test.py           # 自动化测试示例
+│   └── bug_detection.py            # Bug 检测示例
+├── tests/                          # 测试目录
+│   ├── __init__.py
+│   ├── conftest.py                 # 测试配置
+│   ├── test_connection.py          # 连接测试
+│   └── README.md                   # 测试说明
+├── .github/                        # GitHub 配置
+│   ├── workflows/                  # CI/CD 工作流
+│   │   ├── tests.yml               # 测试工作流
+│   │   └── release.yml             # 发布工作流
+│   ├── ISSUE_TEMPLATE/             # Issue 模板
+│   │   ├── bug_report.md           # Bug 报告模板
+│   │   └── feature_request.md      # 功能请求模板
+│   ├── PROFILE.md                  # 组织简介
+│   ├── pull_request_template.md    # PR 模板
+│   └── README.md                   # GitHub 说明
+├── LICENSE                         # MIT 许可证
+├── CHANGELOG.md                    # 更新日志
+├── CODE_OF_CONDUCT.md              # 行为准则
+├── CONTRIBUTING.md                 # 贡献指南（双语）
+├── ROADMAP.md                      # 开发路线图
+├── SECURITY.md                     # 安全政策
+├── README.md                       # 本文件（中文主文档）
+├── setup.py                        # 安装脚本
+├── pyproject.toml                  # 项目配置
+├── requirements.txt                # 依赖列表
+└── requirements-dev.txt            # 开发依赖
+```
+
+---
+
+## 贡献指南
+
+我们欢迎所有形式的贡献！无论是报告 Bug、提出功能建议，还是提交代码改进。
+
+### 🤝 如何贡献
+
+1. **Fork 本仓库** - 点击右上角的 "Fork" 按钮
+2. **克隆你的 Fork** - `git clone https://github.com/YOUR_USERNAME/ai-player.git`
+3. **创建分支** - `git checkout -b feature/amazing-feature`
+4. **提交更改** - `git commit -m "feat: 添加 amazing 功能"`
+5. **推送分支** - `git push origin feature/amazing-feature`
+6. **创建 Pull Request** - 在 GitHub 上创建 PR
+
+### 📝 代码规范
+
+- 遵循 [PEP 8](https://www.python.org/dev/peps/pep-0008/) Python 代码规范
+- 使用 4 个空格缩进
+- 最大行长度 100 字符
+- 提交信息使用 [Conventional Commits](https://www.conventionalcommits.org/) 格式
+
+详细的贡献指南请参阅 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
+---
+
+## 更新日志
+
+### v1.0.0 (2026-03-04)
+
+#### ✨ 新功能
+
+- 初始开源版本发布
+- MCP stdio 服务器实现
+- TCP 连接管理
+- Bug 自动检测引擎
+- 配置管理系统
+- 完整的中英文文档
+- GitHub Actions CI/CD
+
+查看完整的更新日志请参阅 [CHANGELOG.md](CHANGELOG.md)。
+
+---
+
+## 开发路线图
+
+### 短期计划（2026年）
+
+- **v1.1.0** - 连接池管理、WebSocket 支持
+- **v1.2.0** - 测试场景 DSL、可视化编辑器
+- **v1.3.0** - 智能修复引擎增强
+
+### 长期计划（2027年）
+
+- **v2.0.0** - 企业级功能、Web 管理界面
+- 分布式测试执行
+- CI/CD 深度集成
+- 团队协作功能
+
+查看完整的路线图请参阅 [ROADMAP.md](ROADMAP.md)。
+
+---
+
+## 致谢
+
+- [Model Context Protocol](https://modelcontextprotocol.io/) - MCP 协议
+- [FluffOS](https://github.com/fluffos/fluffos) - LPC 驱动
+- 所有贡献者和用户！
+
+---
+
+## 联系我们
+
+- 📧 **邮箱**: your.email@example.com
+- 🐛 **Issues**: [GitHub Issues](https://github.com/FengYunCalm/ai-player/issues)
+- 💬 **讨论**: [GitHub Discussions](https://github.com/FengYunCalm/ai-player/discussions)
+
+---
+
+## 许可证
 
 本项目采用 [MIT 许可证](LICENSE) 开源。
 
@@ -249,24 +419,23 @@ MIT License
 Copyright (c) 2026 AI-Player Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files...
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
-
----
-
-## 🙏 致谢
-
-- [Model Context Protocol](https://modelcontextprotocol.io/) - MCP 协议
-- [FluffOS](https://github.com/fluffos/fluffos) - LPC 驱动
-- 所有贡献者和用户！
-
----
-
-## 📮 联系我们
-
-- 📧 邮箱: your.email@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/FengYunCalm/ai-player/issues)
-- 💬 讨论: [GitHub Discussions](https://github.com/FengYunCalm/ai-player/discussions)
 
 ---
 
@@ -274,6 +443,6 @@ of this software and associated documentation files...
 
 **⭐ 如果这个项目对你有帮助，请给我们一个 Star！**
 
-[🔝 回到顶部](#-ai-player-智能游戏测试工具)
+[🔝 回到顶部](#ai-player-智能游戏测试工具)
 
 </div>
