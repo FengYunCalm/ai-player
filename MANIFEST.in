@@ -6,7 +6,7 @@ include requirements.txt
 include requirements-dev.txt
 include pyproject.toml
 
-recursive-include config *.yaml *.example
+recursive-include ai_player/config *.yaml *.example
 recursive-include ai_player/knowledge *.json
 recursive-include docs *.md
 recursive-include examples *.py *.md
