@@ -59,3 +59,16 @@ line_length = 100
 python_version = "3.9"
 warn_return_any = true
 warn_unused_configs = true
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--cov=ai_player",
+    "--cov-report=term-missing",
+    "--cov-report=xml",
+]
