@@ -629,25 +629,6 @@ ai-player/                          # 项目根目录
 
 ---
 
-## 开发路线图
-
-### 短期计划（2026年）
-
-- **v1.1.0** - 连接池管理、WebSocket 支持
-- **v1.2.0** - 测试场景 DSL、可视化编辑器
-- **v1.3.0** - 智能修复引擎增强
-
-### 长期计划（2027年）
-
-- **v2.0.0** - 企业级功能、Web 管理界面
-- 分布式测试执行
-- CI/CD 深度集成
-- 团队协作功能
-
-查看完整的路线图请参阅 [ROADMAP.md](ROADMAP.md)。
-
----
-
 ## 致谢
 
 - [Model Context Protocol](https://modelcontextprotocol.io/) - MCP 协议
