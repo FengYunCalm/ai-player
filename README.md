@@ -319,10 +319,10 @@ ai-player/                          # 项目根目录
 │   └── README.md                   # GitHub 说明
 ├── LICENSE                         # MIT 许可证
 ├── CHANGELOG.md                    # 更新日志
-├── CODE_OF_CONDUCT.md              # 行为准则
-├── CONTRIBUTING.md                 # 贡献指南（双语）
+│   ├── CODE_OF_CONDUCT.md        # 行为准则
+│   ├── CONTRIBUTING.md           # 贡献指南（双语）
 ├── ROADMAP.md                      # 开发路线图
-├── SECURITY.md                     # 安全政策
+│   ├── SECURITY.md               # 安全政策
 ├── README.md                       # 本文件（中文主文档）
 ├── setup.py                        # 安装脚本
 ├── pyproject.toml                  # 项目配置
@@ -352,7 +352,7 @@ ai-player/                          # 项目根目录
 - 最大行长度 100 字符
 - 提交信息使用 [Conventional Commits](https://www.conventionalcommits.org/) 格式
 
-详细的贡献指南请参阅 [CONTRIBUTING.md](CONTRIBUTING.md)。
+详细的贡献指南请参阅 [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md)。
 
 ---
 
