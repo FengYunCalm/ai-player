@@ -3,10 +3,16 @@ from setuptools import setup, find_packages
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-with open("requirements.txt", "r", encoding="utf-8") as fh:
-    requirements = [
-        line.strip() for line in fh if line.strip() and not line.startswith("#")
-    ]
+# 安全地读取 requirements.txt
+requirements = []
+try:
+    with open("requirements.txt", "r", encoding="utf-8") as fh:
+        requirements = [
+            line.strip() for line in fh if line.strip() and not line.startswith("#")
+        ]
+except FileNotFoundError:
+    # 如果在构建 wheel 时找不到 requirements.txt，使用默认依赖
+    requirements = ["pyyaml>=6.0"]
 
 setup(
     name="ai-player-mud",
@@ -16,7 +22,7 @@ setup(
     description="AI-powered MUD game automation and testing tool using MCP protocol",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/ai-player",
+    url="https://github.com/FengYunCalm/ai-player",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
