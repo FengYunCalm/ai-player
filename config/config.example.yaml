@@ -1,0 +1,18 @@
+# AI Player Example Configuration
+# Copy this file to config.yaml and modify as needed
+
+server:
+  host: "localhost"
+  port: 3939
+  encoding: "utf-8"
+
+login:
+  separator: "|"
+  default_gender: "Male"
+  success_keywords:
+    - "Welcome"
+    - "Success"
+
+test:
+  default_account: "test"
+  default_password: "test123"
