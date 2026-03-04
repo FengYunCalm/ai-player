@@ -43,7 +43,7 @@ class BugInfo:
     message: str
     source_file: Optional[str] = None
     line_number: Optional[int] = None
-    timestamp: datetime = None
+    timestamp: Optional[datetime] = None
     raw_log: str = ""
     
     def __post_init__(self):
@@ -108,7 +108,7 @@ class GameConnection:
         self.log_monitor_running = False
         self.last_log_position = 0
 
-    def connect(self, host: str = None, port: int = None) -> bool:
+    def connect(self, host: Optional[str] = None, port: Optional[int] = None) -> bool:
         """Connect to game server"""
         host = host or self.host
         port = port or self.port
@@ -338,7 +338,7 @@ class GameConnection:
             "message": b.message,
             "source_file": b.source_file,
             "line_number": b.line_number,
-            "timestamp": b.timestamp.isoformat()
+            "timestamp": b.timestamp.isoformat() if b.timestamp else None
         } for b in bugs]
 
     def disconnect(self):

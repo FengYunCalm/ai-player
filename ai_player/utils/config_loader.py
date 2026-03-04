@@ -105,12 +105,12 @@ class ConfigLoader:
 
     def get_server_config(self) -> Dict[str, Any]:
         """获取服务器配置"""
-        return self.get("server", DEFAULT_CONFIG["server"])
-
+        result = self.get("server", DEFAULT_CONFIG["server"])
+        return result if isinstance(result, dict) else DEFAULT_CONFIG["server"]
     def get_login_config(self) -> Dict[str, Any]:
         """获取登录配置"""
-        return self.get("login", DEFAULT_CONFIG["login"])
-
+        result = self.get("login", DEFAULT_CONFIG["login"])
+        return result if isinstance(result, dict) else DEFAULT_CONFIG["login"]
     def get_log_path(self, log_type: str = "runtime") -> str:
         """
         获取日志文件完整路径
@@ -121,7 +121,7 @@ class ConfigLoader:
         Returns:
             日志文件的绝对路径
         """
-        relative_path = self.get(
+        relative_path: Any = self.get(
             f"logging.{log_type}_log", f"server/data/log/{log_type}.log"
         )
 
@@ -130,22 +130,19 @@ class ConfigLoader:
             return os.path.normpath(relative_path)
 
         # 相对路径，基于项目根目录
-        return os.path.normpath(os.path.join(PROJECT_ROOT, relative_path))
-
-    def get_error_keywords(self) -> list:
+        return os.path.normpath(os.path.join(PROJECT_ROOT, str(relative_path)))
+    def get_error_keywords(self) -> list[Any]:
         """获取错误检测关键词"""
-        return self.get(
+        result: Any = self.get(
             "error_detection.keywords", DEFAULT_CONFIG["error_detection"]["keywords"]
         )
-
+        return result if isinstance(result, list) else DEFAULT_CONFIG["error_detection"]["keywords"]
     def is_debug(self) -> bool:
         """是否调试模式"""
-        return self.get("debug", DEFAULT_CONFIG["debug"])
-
+        result = self.get("debug", DEFAULT_CONFIG["debug"])
+        return bool(result)
     def get_all_config(self) -> Dict[str, Any]:
-        """获取完整配置"""
-        return self._config
-    
+        return self._config if isinstance(self._config, dict) else DEFAULT_CONFIG
     def get_project_root(self) -> str:
         """获取项目根目录"""
         return PROJECT_ROOT
@@ -178,19 +175,17 @@ class ConfigLoader:
             启动脚本的完整路径
         """
         script_path = self.get(f"paths.startup_scripts.{platform}", f"server/bin/start.{platform[:3]}")
-        
+
         if os.path.isabs(script_path):
             return os.path.normpath(script_path)
         return os.path.normpath(os.path.join(PROJECT_ROOT, script_path))
-    
     def get_log_dir(self) -> str:
         """获取日志目录路径"""
         log_dir = self.get("paths.log_dir", "server/data/log")
-        
+
         if os.path.isabs(log_dir):
             return os.path.normpath(log_dir)
         return os.path.normpath(os.path.join(PROJECT_ROOT, log_dir))
-
 
 # 全局配置实例
 config = ConfigLoader()
