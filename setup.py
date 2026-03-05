@@ -29,7 +29,7 @@ setup(
         "Intended Audience :: Developers",
         "Topic :: Games/Entertainment :: Multi-User Dungeons (MUD)",
         "Topic :: Software Development :: Testing",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",

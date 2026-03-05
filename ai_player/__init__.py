@@ -3,4 +3,4 @@
 
 __version__ = "1.0.0"
 __author__ = "AI-Player Contributors"
-__license__ = "MIT"
+__license__ = "GPL-3.0"

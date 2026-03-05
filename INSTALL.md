@@ -80,7 +80,7 @@ pip install -e .
    ---
    name: ai-player
    description: AI-powered MUD game automation and testing tool using MCP protocol
-   license: MIT
+   license: GPL v3
    compatibility: opencode
    ---
 

@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-GPL_v3-blue.svg)](LICENSE)
 [![MCP](https://img.shields.io/badge/MCP-Protocol-green.svg)](https://modelcontextprotocol.io)
 [![CI](https://github.com/FengYunCalm/ai-player/workflows/Tests/badge.svg)](https://github.com/FengYunCalm/ai-player/actions)
 
@@ -38,7 +38,7 @@ pip install ai-player-mud
 
 ## 📜 开源协议
 
-[MIT License](LICENSE)
+[GPL v3 License](LICENSE)
 
 ---
 

@@ -8,7 +8,7 @@ version = "1.0.0"
 description = "AI-powered MUD game automation and testing tool using MCP protocol"
 readme = "README.md"
 requires-python = ">=3.9"
-license = {text = "MIT"}
+license = {text = "GPL-3.0"}
 authors = [
     {name = "AI-Player Contributors", email = "noreply@FengYunCalm.github.com"}
 ]
@@ -18,7 +18,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Games/Entertainment :: Multi-User Dungeons (MUD)",
     "Topic :: Software Development :: Testing",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",

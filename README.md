@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/badge/Python-3.8+-blue.svg?style=flat-square&logo=python" alt="Python 3.8+">
   </a>
   <a href="https://www.gnu.org/licenses/gpl-3.0">
-    <img src="https://img.shields.io/badge/License-GPL_v3-blue.svg?style=flat-square" alt="License: MIT">
+    <img src="https://img.shields.io/badge/License-GPL_v3-blue.svg?style=flat-square" alt="License: GPL v3">
   </a>
   <a href="https://modelcontextprotocol.io/">
     <img src="https://img.shields.io/badge/MCP-协议-green.svg?style=flat-square" alt="MCP Protocol">
@@ -681,7 +681,7 @@ ai-player/                          # 项目根目录
 本项目采用 [GPL v3 许可证](LICENSE) 开源。
 
 ```
-MIT License
+GPL v3 License
 
 Copyright (c) 2025 AI-Player Contributors
 
