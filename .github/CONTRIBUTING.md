@@ -116,7 +116,7 @@ pytest --cov=ai_player --cov-report=html
 ### ❓ 常见问题
 
 **Q: 我需要签署贡献者协议吗？**
-A: 不需要，但提交 PR 即表示您同意将代码以 MIT 许可证授权。
+A: 不需要，但提交 PR 即表示您同意将代码以 GPL v3 许可证授权。
 
 **Q: 我是新手，可以贡献吗？**
 A: 当然可以！我们有 "good first issue" 标签的问题适合新手。
@@ -238,7 +238,7 @@ See [ROADMAP.md](ROADMAP.md) for future project plans.
 ### ❓ FAQ
 
 **Q: Do I need to sign a contributor agreement?**
-A: No, but submitting a PR means you agree to license your code under MIT.
+A: No, but submitting a PR means you agree to license your code under GPL v3.
 
 **Q: I'm a beginner, can I contribute?**
 A: Absolutely! We have "good first issue" labeled issues perfect for beginners.
