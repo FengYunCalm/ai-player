@@ -13,41 +13,14 @@ AI-Player is a Python codebase for MCP-driven MUD automation. In the current rep
 - `tests/` — current pytest-based test suite
 - `.github/workflows/tests.yml` — CI workflow for test execution
 
-## Installation
-
-`pyproject.toml` declares Python `>=3.9` for this repository.
+## Get the code
 
 ```bash
 git clone https://github.com/FengYunCalm/ai-player.git
 cd ai-player
-pip install -e .
 ```
 
-## Configuration
-
-By default the code loads `ai_player/config/config.yaml`. Start from the bundled example file:
-
-```bash
-cp ai_player/config/config.example.yaml ai_player/config/config.yaml
-```
-
-Then adjust the server, login, and logging settings for your environment. If you need a different location, set the `AI_PLAYER_CONFIG` environment variable.
-
-## Run
-
-Start the MCP stdio server:
-
-```bash
-python -m ai_player.mcp_server
-```
-
-Run the example scripts:
-
-```bash
-python examples/basic_connection.py
-python examples/automated_test.py
-python examples/bug_detection.py
-```
+This repository is documented as source code first. It does not claim any pip package release, hosted deployment, or one-command distribution flow.
 
 ## Current technical baseline
 
@@ -70,7 +43,7 @@ ai-player/
 ├── tests/                     # Pytest suite
 ├── docs/                      # Supplemental documentation
 ├── .github/                   # GitHub workflows and community files
-├── pyproject.toml             # Packaging metadata
+├── pyproject.toml             # Packaging metadata in repo
 └── README.zh-CN.md            # Chinese README
 ```
 
